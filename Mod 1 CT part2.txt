@@ -1,0 +1,12 @@
+Part 2: Pseudocode
+
+BEGIN
+    PRINT "Now, let's choose two numbers to multiply and divide."
+    INPUT num1 AS INTEGER
+    INPUT num2 AS INTEGER
+    PRINT a blank line
+    PRINT "When you multiply, num1, "and", num2, "the product is:"
+    PRINT num1 * num2
+    PRINT "And when you divide", num1 "and" num2, "the quotient is:"
+    PRINT num1 / num2
+END

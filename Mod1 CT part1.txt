@@ -1,0 +1,12 @@
+Part 1: Pseudocode
+
+BEGIN
+    PRINT "Let's say you choose two numbers."
+    INPUT num1 AS INTEGER
+    INPUT num2 AS INTEGER
+    PRINT a blank line
+    PRINT "When you add, num1, "and", num2, "the sum is:"
+    PRINT num1 + num2
+    PRINT "And when you subtract", num1 "and" num2, "the difference is:"
+    PRINT num1 - num2
+END
