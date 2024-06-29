@@ -18,8 +18,10 @@ pet_name = "Gerald"
 print(pet_name, 'the', pet, 'is', age)
 
 
-
 print('Enter wage:', end=' ')
 wage = int(input())
 new_wage = wage + 10
 print('new wage:', new_wage)
+
+x = 2 + 2
+print(id(x))
