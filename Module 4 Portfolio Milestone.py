@@ -26,3 +26,10 @@ print()
 print('TOTAL COST\n')
 print(item1.print_item_cost())
 print(item2.print_item_cost())
+
+# print the totaled amounts
+total_cost_item1 = item1.item_price * item1.item_quantity
+total_cost_item2 = item2.item_price * item2.item_quantity
+
+total_cost = total_cost_item1 + total_cost_item2
+print(f'Total: ${total_cost:.2f}')
