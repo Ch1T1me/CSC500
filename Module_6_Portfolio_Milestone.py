@@ -1,5 +1,13 @@
-# import ItemToPurchase
-from Module_4_Portfolio_Milestone import ItemToPurchase
+# Online Shopping Cart
+class ItemToPurchase:
+    def __init__(self, name = 'none', price = 0.0, quantity = 0):
+        self.item_name = name
+        self.item_price = price
+        self.item_quantity = quantity
+   
+    def print_item_cost(self):
+        total_cost = self.item_price * self.item_quantity
+        return f'{self.item_name} {self.item_quantity} @ ${self.item_price} = ${total_cost:.2f}'
 
 # part 4: add new shoping cart class
 class ShoppingCart:
@@ -51,7 +59,7 @@ class ShoppingCart:
         print(f'{self.customer_name} - {self.current_date}\n')
         print('Item Descriptions\n')
         for item in self.cart_items:
-            description = input(f'Enter description for {item.item_name}:')
+            description = getattr(item, 'description', 'No description available')
             print(f'{item.item_name}: {description}')
 
 # part 5
@@ -67,21 +75,27 @@ def print_menu(shopping_cart: ShoppingCart):
 
 # def main: implement instructions for menu
 def main():
+    print('Welcome to the online Shopping Cart')
     #user input for name
     customer_name = input('Please enter your name: ')
-    cart = ShoppingCart(customer_name)
+    current_date = 'January 1, 2020'
+
+    cart = ShoppingCart(customer_name, current_date)
 
     while True:
-        print_menu()
+        print_menu(cart)
         # make sure there are no proceeding spaces and letters are lowercase
-        choice = input('Choose an option').strip().lower()
+        choice = input().strip().lower()
 
         if choice == 'a':
             name = input('Enter item name:\n')
+            description = input('Enter product description: ')
             price = float(input('Enter the item price:\n'))
             quantity = int(input('Enter the item quantity:\n'))
-            cart.add_item(ItemToPurchase(name, price, quantity))
-            print('Item added')
+            item = ItemToPurchase(name, price, quantity)
+            item.description = description
+            cart.add_item(item)
+            print(f'Added {name} to cart.')
         
         elif choice == 'r':
             # remove item
@@ -95,7 +109,7 @@ def main():
             new_quantity = int(input('Enter new quantity: '))
             item_to_modify = ItemToPurchase(name, '', 0.0, new_quantity)
             cart.modify_item(item_to_modify)
-            print('Item quantity modified')
+            print('Item quantity modified to {new_quantity}')
         
         elif choice == 'i':
             cart.print_descriptions()
@@ -109,3 +123,6 @@ def main():
             break
         else:
             print('Invalid option, plaese try again.')
+# call main function to action
+if __name__ == '__main__':
+    main()
