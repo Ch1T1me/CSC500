@@ -75,12 +75,14 @@ def print_menu(shopping_cart: ShoppingCart):
 
 # def main: implement instructions for menu
 def main():
-    print('Welcome to the online Shopping Cart')
+    print('Welcome to the online Shopping Cart\n')
     #user input for name
-    customer_name = input('Please enter your name: ')
-    current_date = input('Please enter today\'s date: ')
+    customer_name = input('Please enter your name:\n')
+    current_date = input('Please enter today\'s date:\n')
 
     cart = ShoppingCart(customer_name, current_date)
+    print(f'Customers name: {customer_name}')
+    print(f'Today\'s date: {current_date}')
 
     while True:
         print_menu(cart)
